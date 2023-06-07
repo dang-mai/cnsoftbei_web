@@ -33,7 +33,7 @@ poetry shell
 
 ```bash
 cd pandasai_app
-streamlit run main.py 
+streamlit run 首页.py 
 ```
 
 Run App using Docker

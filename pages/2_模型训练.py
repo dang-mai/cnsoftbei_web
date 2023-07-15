@@ -64,7 +64,7 @@ def train():
                 # 在测试集上评估模型
                 y_pred = lgc.predict(X_test)
                 st.session_state.predict = classification_report(y_test, y_pred)
-             elif model_type == 'RandomForest':
+            elif model_type == 'RandomForest':
                 rf = RandomForestClassifier(n_estimators=200, max_depth=10, random_state=42)
                 # 训练模型
                 rf.fit(X_train, y_train)

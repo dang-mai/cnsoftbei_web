@@ -42,13 +42,14 @@ def train():
             X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
             
             if model_type == 'GBDT':
-                gbr = GradientBoostingClassifier(learning_rate=0.05, max_depth=7, min_samples_leaf=7, min_samples_split=20, n_estimators=200, subsample=0.75)
-                # 训练模型
-                gbr.fit(X_train, y_train)
-                # 在测试集上评估模型
-                y_pred = gbr.predict(X_test)
-                mse = mean_squared_error(y_test, y_pred)
-                st.write(f"Mean squared error: {mse:.2f}")
+                st.write("Yes!")
+                # gbr = GradientBoostingClassifier(learning_rate=0.05, max_depth=7, min_samples_leaf=7, min_samples_split=20, n_estimators=200, subsample=0.75)
+                # # 训练模型
+                # gbr.fit(X_train, y_train)
+                # # 在测试集上评估模型
+                # y_pred = gbr.predict(X_test)
+                # mse = mean_squared_error(y_test, y_pred)
+                # st.write("Yes!")
 
 
 st.button("开始训练", on_click=train)

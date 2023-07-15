@@ -14,7 +14,7 @@ st.set_page_config(
     initial_sidebar_state="expanded",)
 
 cols = st.columns(6)
-cols[0].caption("By NCC小萝卜")
+cols[0].caption("By 网安小萝卜")
 cols[-1].caption("第十二届软件杯大赛")
 
 st.header("📖 智能对话")

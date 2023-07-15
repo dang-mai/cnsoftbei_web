@@ -16,7 +16,7 @@ from sklearn.tree import DecisionTreeClassifier
 st.set_page_config(page_title="模型训练", page_icon="🌍", layout="wide")
 
 cols = st.columns(6)
-cols[0].caption("By NCC小萝卜")
+cols[0].caption("By 网安小萝卜")
 cols[-1].caption("第十二届软件杯大赛")
 
 st.write("# 模型训练")

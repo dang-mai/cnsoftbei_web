@@ -59,20 +59,20 @@ def train():
                 # 在测试集上评估模型
                 y_pred = lgc.predict(X_test)
                 st.session_state.predict = classification_report(y_test, y_pred)
-             elif model_type == 'lightgbm':
-                lgc = LGBMClassifier(lambda_l1=0, lambda_l2=0, learning_rate=0.1, max_depth=3, n_estimators=200, subsample=0.8)
-                # 训练模型
-                lgc.fit(X_train, y_train)
-                # 在测试集上评估模型
-                y_pred = lgc.predict(X_test)
-                st.session_state.predict = classification_report(y_test, y_pred)
-            elif model_type == 'lightgbm':
-                lgc = LGBMClassifier(lambda_l1=0, lambda_l2=0, learning_rate=0.1, max_depth=3, n_estimators=200, subsample=0.8)
-                # 训练模型
-                lgc.fit(X_train, y_train)
-                # 在测试集上评估模型
-                y_pred = lgc.predict(X_test)
-                st.session_state.predict = classification_report(y_test, y_pred)
+            #  elif model_type == 'lightgbm':
+            #     lgc = LGBMClassifier(lambda_l1=0, lambda_l2=0, learning_rate=0.1, max_depth=3, n_estimators=200, subsample=0.8)
+            #     # 训练模型
+            #     lgc.fit(X_train, y_train)
+            #     # 在测试集上评估模型
+            #     y_pred = lgc.predict(X_test)
+            #     st.session_state.predict = classification_report(y_test, y_pred)
+            # elif model_type == 'lightgbm':
+            #     lgc = LGBMClassifier(lambda_l1=0, lambda_l2=0, learning_rate=0.1, max_depth=3, n_estimators=200, subsample=0.8)
+            #     # 训练模型
+            #     lgc.fit(X_train, y_train)
+            #     # 在测试集上评估模型
+            #     y_pred = lgc.predict(X_test)
+            #     st.session_state.predict = classification_report(y_test, y_pred)
 
 
 st.button("开始训练", on_click=train)

@@ -31,7 +31,8 @@ model_type = st.selectbox('选择要使用的模型', models)
 
 if 'predict' not in st.session_state:
     st.session_state.predict = None
-
+if 'model' not in st.session_state:
+    st.session_state.model = None
 
 def train():
     with process:
@@ -49,28 +50,25 @@ def train():
             X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
             if model_type == 'GBDT':
-                gbc = GradientBoostingClassifier(learning_rate=0.05, max_depth=7, max_features=None, min_samples_leaf=7,
+                model = GradientBoostingClassifier(learning_rate=0.05, max_depth=7, max_features=None, min_samples_leaf=7,
                                                  min_samples_split=20, n_estimators=200, subsample=0.75)
                 # 训练模型
-                gbc.fit(X_train, y_train)
+                model.fit(X_train, y_train)
                 # 在测试集上评估模型
-                y_pred = gbc.predict(X_test)
-                st.session_state.predict = classification_report(y_test, y_pred)
+                y_pred = model.predict(X_test)
             elif model_type == 'lightgbm':
-                lgc = LGBMClassifier(lambda_l1=0, lambda_l2=0, learning_rate=0.1, max_depth=3, n_estimators=200,
+                model = LGBMClassifier(lambda_l1=0, lambda_l2=0, learning_rate=0.1, max_depth=3, n_estimators=200,
                                      subsample=0.8)
                 # 训练模型
-                lgc.fit(X_train, y_train)
+                model.fit(X_train, y_train)
                 # 在测试集上评估模型
-                y_pred = lgc.predict(X_test)
-                st.session_state.predict = classification_report(y_test, y_pred)
+                y_pred = model.predict(X_test)
             elif model_type == 'RandomForest':
-                rf = RandomForestClassifier(n_estimators=200, max_depth=10, random_state=42)
+                model = RandomForestClassifier(n_estimators=200, max_depth=10, random_state=42)
                 # 训练模型
-                rf.fit(X_train, y_train)
+                model.fit(X_train, y_train)
                 # 在测试集上评估模型
-                y_pred = rf.predict(X_test)
-                st.session_state.predict = classification_report(y_test, y_pred)
+                y_pred = model.predict(X_test)
             elif model_type == 'stacking':
                 estimators = [
                     ('rf', RandomForestClassifier(n_estimators=200, max_depth=10, random_state=42)),
@@ -81,17 +79,24 @@ def train():
                                                         max_features=None, min_samples_leaf=7, min_samples_split=20,
                                                         subsample=0.75))
                 ]
-                stc = StackingClassifier(estimators=estimators, final_estimator=LogisticRegression(C=1, penalty='l1', 
+                model = StackingClassifier(estimators=estimators, final_estimator=LogisticRegression(C=1, penalty='l1', 
                                                                                                    solver='liblinear'),
                                          stack_method='predict_proba')
                 # 训练模型
-                stc.fit(X_train, y_train)
+                model.fit(X_train, y_train)
                 # 在测试集上评估模型
-                y_pred = stc.predict(X_test)
-                st.session_state.predict = classification_report(y_test, y_pred)
+                y_pred = model.predict(X_test)
+            st.session_state.predict = classification_report(y_test, y_pred)
+            st.session_state.model = model
 
 
 st.button("开始训练", on_click=train)
 process = st.empty()
 if st.session_state.predict is not None:
     st.text(st.session_state.predict)
+    
+    # 保存模型
+    model_type_new = model_type + ".new"
+    with open(model_type_new + '.pkl', 'wb') as f:
+        pickle.dump(model, f)
+    

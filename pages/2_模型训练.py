@@ -99,5 +99,5 @@ if st.session_state.predict is not None:
     # 保存模型
     model_type_new = model_type + ".new"
     with open(model_type_new + '.pkl', 'wb') as f:
-        pickle.dump(model, f)
+        pickle.dump(st.session_state.model, f)
     

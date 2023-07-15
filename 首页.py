@@ -6,15 +6,17 @@ cols = st.columns(6)
 cols[0].caption("By 网安小萝卜")
 cols[-1].caption("第十二届软件杯大赛")
 
-st.write("# System Fault Diagnosis System: 基于机器学习的分布式系统故障诊断系统")
+st.write("# System Fault Diagnosis System")
 
 st.sidebar.success("Welcome!")
 
 st.markdown(
     """
-    **System Fault Diagnosis System 是一个基于机器学习的分布式系统故障诊断系统，系统分为三个模块——xxx。**
-    - xxx: xxx。
-    - xxx: xxx。  
+    **System Fault Diagnosis System 是一个基于机器学习的分布式系统故障诊断系统，系统分为四个模块。**
+    - 数据传输: xxx。
+    - 模型训练: xxx。
+    - 模型推理：
+    - 智能对话：
     **👈 从侧边栏选择一个模块** 来查看系统的具体示例。
     ### 动机
     - xxx

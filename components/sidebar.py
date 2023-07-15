@@ -36,19 +36,19 @@ def sidebar():
         else:
             st.markdown("OpenAi API Key Configured!")
 
-        st.markdown("---")
-        st.markdown("# About")
-        st.markdown(
-            "📖Pandasai App allows you to ask questions about your "
-            "csv / dataframe and get accurate answers"
-        )
-        st.markdown(
-            "Pandasai is in active development so is this tool."
-            "You can contribute to the project on [GitHub]() "  # noqa: E501
-            "with your feedback and suggestions💡"
-        )
-        st.markdown("Made by [DR. AMJAD RAZA](https://www.linkedin.com/in/amjadraza/)")
-        st.markdown("Credits for Template [mmz_001](https://twitter.com/mm_sasmitha)")
+        # st.markdown("---")
+        # st.markdown("# About")
+        # st.markdown(
+        #     "📖Pandasai App allows you to ask questions about your "
+        #     "csv / dataframe and get accurate answers"
+        # )
+        # st.markdown(
+        #     "Pandasai is in active development so is this tool."
+        #     "You can contribute to the project on [GitHub]() "  # noqa: E501
+        #     "with your feedback and suggestions💡"
+        # )
+        # st.markdown("Made by [DR. AMJAD RAZA](https://www.linkedin.com/in/amjadraza/)")
+        # st.markdown("Credits for Template [mmz_001](https://twitter.com/mm_sasmitha)")
         st.markdown("---")
 
         faq()

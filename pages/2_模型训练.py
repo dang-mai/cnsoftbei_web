@@ -21,11 +21,11 @@ st.subheader("模型", anchor="模型")
 models = ['knn', 'lightgbm', 'svm', 'xgboost']
 model_type = st.selectbox('选择要使用的模型', models)
 
+st.write(model_type)
 
 def train():
     with process:
         with st.spinner("正在训练..."):
-            st.write(model_type)
             time.sleep(5)
 
 

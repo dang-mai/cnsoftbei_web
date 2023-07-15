@@ -5,7 +5,7 @@ from register import DATASET_DIR, MODEL_DIR
 st.set_page_config(page_title="数据传输", page_icon="📈", layout="wide")
 
 cols = st.columns(6)
-cols[0].caption("By NCC小萝卜")
+cols[0].caption("By 网安小萝卜")
 cols[-1].caption("第十二届软件杯大赛")
 
 st.write("# 数据传输")

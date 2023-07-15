@@ -3,7 +3,7 @@ import streamlit as st
 st.set_page_config(page_title="System Fault Diagnosis System", page_icon="👋", layout="wide")
 
 cols = st.columns(6)
-cols[0].caption("By NCC小萝卜")
+cols[0].caption("By 网安小萝卜")
 cols[-1].caption("第十二届软件杯大赛")
 
 st.write("# System Fault Diagnosis System: 基于机器学习的分布式系统故障诊断系统")

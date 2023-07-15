@@ -12,6 +12,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
 import pandas as pd
 from sklearn.tree import DecisionTreeClassifier
+import pickle
 
 st.set_page_config(page_title="模型训练", page_icon="🌍", layout="wide")
 

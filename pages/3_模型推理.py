@@ -13,7 +13,7 @@ cols = st.columns(6)
 cols[0].caption("By 网安小萝卜")
 cols[-1].caption("第十二届软件杯大赛")
 
-st.write("# 模型训练")
+st.write("# 模型推理")
 st.subheader("数据集", anchor="数据集")
 _, _, datasets = next(os.walk(DATASET_DIR))
 dataset_name = st.selectbox('选择要使用的数据集', datasets)

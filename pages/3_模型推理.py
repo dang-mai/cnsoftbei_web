@@ -6,8 +6,8 @@ from register import DATASET_DIR, MODEL_DIR
 
 st.set_page_config(page_title="模型推理", page_icon="📊", layout="wide")
 
-if 'predict' not in st.session_state:
-    st.session_state.predict = None
+if 'predict2' not in st.session_state:
+    st.session_state.predict2 = None
 
 cols = st.columns(6)
 cols[0].caption("By 网安小萝卜")
@@ -35,13 +35,13 @@ def inference():
             with open(os.path.join(MODEL_DIR, model_name), 'rb') as f:
                 model = pickle.load(f)
             # 使用模型进行预测
-            st.session_state.predict = model.predict(input_data)
+            st.session_state.predict2 = model.predict(input_data)
 
 
 st.button("开始推理", on_click=inference)
 process = st.empty()
-if st.session_state.predict is not None:
+if st.session_state.predict2 is not None:
     dataset_name_out = dataset_name[0:-4] + ".out.csv"
-    st.write(st.session_state.predict)
-    st.session_state.predict_df = pd.DataFrame(st.session_state.predict)
+    st.write(st.session_state.predict2)
+    st.session_state.predict_df = pd.DataFrame(st.session_state.predict2)
     st.session_state.predict_df.to_csv(os.path.join(DATASET_DIR, dataset_name_out))

@@ -18,10 +18,8 @@ _, _, datasets = next(os.walk(DATASET_DIR))
 dataset_name = st.selectbox('选择要使用的数据集', datasets)
 
 st.subheader("模型", anchor="模型")
-models = ['knn', 'lightgbm', 'svm', 'xgboost']
+models = ['GBDT', 'lightgbm', 'RandomForest', 'xgboost']
 model_type = st.selectbox('选择要使用的模型', models)
-
-st.write(model_type)
 
 def train():
     with process:

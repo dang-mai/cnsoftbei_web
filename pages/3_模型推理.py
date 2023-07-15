@@ -10,7 +10,7 @@ if 'predict' not in st.session_state:
     st.session_state.predict = None
 
 cols = st.columns(6)
-cols[0].caption("By NCC小萝卜")
+cols[0].caption("By 网安小萝卜")
 cols[-1].caption("第十二届软件杯大赛")
 
 st.write("# 模型训练")
@@ -28,8 +28,8 @@ def inference():
         with st.spinner("正在推理..."):
             # 从CSV文件中加载输入数据
             input_data = pd.read_csv(os.path.join(DATASET_DIR, dataset_name))
-            # 处理空数据，将空数据填充为0
-            input_data = input_data.fillna(0)
+            # 处理空数据，将空数据填充为众数
+            input_data = input_data.fillna(data.mode().iloc[0])
             input_data = input_data.drop(['sample_id', 'feature57', 'feature77', 'feature100'], axis=1)
             # 加载模型文件
             with open(os.path.join(MODEL_DIR, model_name), 'rb') as f:

@@ -4,7 +4,7 @@ import streamlit as st
 import os
 from register import DATASET_DIR, MODEL_DIR
 
-from sklearn.ensemble import GradientBoostingRegressor
+from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split
 import pandas as pd

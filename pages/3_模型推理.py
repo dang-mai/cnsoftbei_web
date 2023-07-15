@@ -43,4 +43,5 @@ process = st.empty()
 if st.session_state.predict is not None:
     dataset_name_out = dataset_name + ".out"
     st.write(st.session_state.predict)
-    st.session_state.predict.to_csv(os.path.join(DATASET_DIR, dataset_name_out))
+    st.write(type(st.session_state.predict))
+    # st.session_state.predict.to_csv(os.path.join(DATASET_DIR, dataset_name_out))

@@ -52,10 +52,18 @@ def train():
                 # 在测试集上评估模型
                 y_pred = gbc.predict(X_test)
                 st.session_state.predict = classification_report(y_test, y_pred)
+            # elif model_type == 'GBDT':
+            #     gbc = GradientBoostingClassifier(learning_rate=0.05, max_depth=7, max_features=None, min_samples_leaf=7, min_samples_split=20, n_estimators=200, subsample=0.75)
+            #     # 训练模型
+            #     gbc.fit(X_train, y_train)
+            #     # 在测试集上评估模型
+            #     y_pred = gbc.predict(X_test)
+            #     st.session_state.predict = classification_report(y_test, y_pred)
                 
 
 
 st.button("开始训练", on_click=train)
 process = st.empty()
 if st.session_state.predict is not None:
-    st.write(st.session_state.predict)
+    df = pd.DataFrame(st.session_state.predict).transpose()
+    st.write(df)

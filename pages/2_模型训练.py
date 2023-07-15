@@ -25,6 +25,7 @@ model_type = st.selectbox('选择要使用的模型', models)
 def train():
     with process:
         with st.spinner("正在训练..."):
+            st.write(model_type)
             time.sleep(5)
 
 

@@ -2,3 +2,4 @@ streamlit
 pandasai
 pandas
 lightgbm
+scikit-learn

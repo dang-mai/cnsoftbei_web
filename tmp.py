@@ -6,7 +6,7 @@ import pickle
 input_data = pd.read_csv('input.csv')
 
 # 处理空数据，将空数据填充为0
-input_data = input_data.fillna(0)
+input_data = input_data.fillna(input_data.mode().iloc[0])
 
 input_data = input_data.drop(['sample_id', 'feature57', 'feature77', 'feature100'], axis=1)
 

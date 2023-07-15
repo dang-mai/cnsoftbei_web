@@ -27,12 +27,12 @@ st.markdown(
     
     因此，我们设计并实现了基于机器学习的分布式系统故障诊断系统。
     ### 代码
-    System Fault Diagnosis System的Python参考实现在GitHub(https://github.com/dang-mai/xxx) 上可获得。
+    System Fault Diagnosis System的Python参考实现在GitHub(https://github.com/dang-mai/cnsoftbei) 上可获得。
     ### 数据集
     我们公开System Fault Diagnosis System的数据集:
-    - xxx数据集(https://xxx/dataset.zip)
+    - 数据集(https://github.com/dang-mai/cnsoftbei/dataset.zip)
     ### 贡献者
-    NCC小萝卜团队
+    网安小萝卜团队
     ### 参考
-    基于机器学习的分布式系统故障诊断系统报告. NCC小萝卜团队.
+    基于机器学习的分布式系统故障诊断系统报告. 网安小萝卜团队.
 """)

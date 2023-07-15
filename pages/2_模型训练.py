@@ -5,9 +5,10 @@ import os
 from register import DATASET_DIR, MODEL_DIR
 
 from sklearn.ensemble import GradientBoostingClassifier
-from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split
+from sklearn.metrics import classification_report
 import pandas as pd
+
 
 
 st.set_page_config(page_title="模型训练", page_icon="🌍", layout="wide")

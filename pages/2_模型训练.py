@@ -8,6 +8,7 @@ from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
 import pandas as pd
+import lightgbm as lgb
 
 
 
@@ -52,13 +53,13 @@ def train():
                 # 在测试集上评估模型
                 y_pred = gbc.predict(X_test)
                 st.session_state.predict = classification_report(y_test, y_pred)
-            # elif model_type == 'GBDT':
-            #     gbc = GradientBoostingClassifier(learning_rate=0.05, max_depth=7, max_features=None, min_samples_leaf=7, min_samples_split=20, n_estimators=200, subsample=0.75)
-            #     # 训练模型
-            #     gbc.fit(X_train, y_train)
-            #     # 在测试集上评估模型
-            #     y_pred = gbc.predict(X_test)
-            #     st.session_state.predict = classification_report(y_test, y_pred)
+            elif model_type == 'lightgbm':
+                lgc = LGBMClassifier(lambda_l1=0, lambda_l2=0, learning_rate=0.1, max_depth=3, n_estimators=200, subsample=0.8)
+                # 训练模型
+                lgc.fit(X_train, y_train)
+                # 在测试集上评估模型
+                y_pred = lgc.predict(X_test)
+                st.session_state.predict = classification_report(y_test, y_pred)
                 
 
 

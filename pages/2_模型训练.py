@@ -26,6 +26,9 @@ st.subheader("模型", anchor="模型")
 models = ['GBDT', 'lightgbm', 'RandomForest', 'xgboost', 'stacking']
 model_type = st.selectbox('选择要使用的模型', models)
 
+if 'predict' not in st.session_state:
+    st.session_state.predict = None
+
 def train():
     with process:
         with st.spinner("正在训练..."):
@@ -42,15 +45,16 @@ def train():
             X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
             
             if model_type == 'GBDT':
-                st.write("Yes!")
-                # gbr = GradientBoostingClassifier(learning_rate=0.05, max_depth=7, min_samples_leaf=7, min_samples_split=20, n_estimators=200, subsample=0.75)
-                # # 训练模型
-                # gbr.fit(X_train, y_train)
-                # # 在测试集上评估模型
-                # y_pred = gbr.predict(X_test)
-                # mse = mean_squared_error(y_test, y_pred)
-                # st.write("Yes!")
+                gbc = GradientBoostingClassifier(learning_rate=0.05, max_depth=7, max_features=None, min_samples_leaf=7, min_samples_split=20, n_estimators=200, subsample=0.75)
+                # 训练模型
+                gbc.fit(X_train, y_train)
+                # 在测试集上评估模型
+                y_pred = gbc.predict(X_test)
+                st.session_state.predict = classification_report(y_test, y_pred)
+                
 
 
 st.button("开始训练", on_click=train)
 process = st.empty()
+if st.session_state.predict is not None:
+    st.write(st.session_state.predict)
